@@ -7,8 +7,6 @@
 
     <ItemGroup>
       <PackageReference Include="AngleSharp" Version="1.0.0-alpha-844" />
-      <PackageReference Include="AngleSharp.Css" Version="0.14.3-alpha-166" />
-      <PackageReference Include="AngleSharp.XPath" Version="1.1.7" />
     </ItemGroup>
 
 </Project>

@@ -10,17 +10,13 @@ namespace giteePaChong
 {
     class Program
     {
-        private static string _localHtmlFilePath = @"E:\Desktop\giteeHtml.txt";
-
         private static string _giteeUrl = "https://gitee.com/gvp/all";
 
         // 欲获取的节点 例子
         //<div class='ui mini label'>Java</div>
         static async Task Main(string[] args)
         {
-            
-            var data = await ReadLocalHtmlFile();
-            
+            var data = await GetHtml(_giteeUrl);
             var htmlParser = new HtmlParser();
             // HTML文本 解析为 HtmlDocument 对象
             var doc = await htmlParser.ParseDocumentAsync(data);
@@ -53,25 +49,14 @@ namespace giteePaChong
         }
 
         /// <summary>
-        /// 初始化HTML数据
+        /// 获取html数据
         /// </summary>
         /// <returns></returns>
-        private static async Task InitHtmlFile()
+        private static async Task<string> GetHtml(string url)
         {
             var httpClient = new HttpClient();
-            var htmlContent = await httpClient.GetStringAsync(_giteeUrl);
-
-            await File.WriteAllTextAsync(_localHtmlFilePath, htmlContent);
-        }
-
-        /// <summary>
-        /// 读取文件HTML数据
-        /// </summary>
-        /// <returns></returns>
-        private static async Task<string> ReadLocalHtmlFile()
-        {
-            var allText = await File.ReadAllTextAsync(_localHtmlFilePath);
-            return allText;
+            var htmlContent = await httpClient.GetStringAsync(url);
+            return htmlContent; 
         }
     }
 }
