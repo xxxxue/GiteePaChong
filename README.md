@@ -1,6 +1,6 @@
 ## giteePaChong
 
-> Gitee 码云GVIP 项目 语言数量 统计
+> Gitee 码云GVP 项目 语言数量 统计
 
 ## 2021.02.16
 
